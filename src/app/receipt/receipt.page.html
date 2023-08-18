@@ -1,0 +1,49 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+
+    <!--Back button, beware the tag is "ion-buttons" or the button looks unpleasing-->
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+
+    <ion-title>Your Receipt</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Reservation</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div id="container">
+    <h1>Reservation Confirmed</h1>
+    <br/>
+
+    <div><strong>Reservation Number: </strong> <span style="color:blue">RES-{{ referenceNum }}</span></div>
+    <br/>
+
+    <div><strong>Car Type: </strong><span style="color:blue">{{ reservation.carType }}</span></div>
+    <br/>
+
+    <div><strong>Length of Rental: </strong><span style="color:blue">{{ reservation.hour }} {{reservation.hour > 1 ? "hours" : "hour"}}</span></div>
+    <br/>
+
+    <div><strong>Pickup Date: </strong><span style="color:blue">{{ reservation.date }}</span></div>
+    <br/>
+
+    <div><strong>Car Seat Required?: </strong><span style="color:blue">{{ reservation.childSeat ? "Yes" : "No" }}</span></div>
+    <br/>
+
+    <div><strong>Subtotal: </strong><span style="color:blue">${{ subTotal.toFixed(2) }}</span></div>
+    <br/>
+
+    <div><strong>Tax: </strong><span style="color:blue">${{ (subTotal * tax).toFixed(2) }}</span></div>
+    <br/>
+
+    <div><strong>Total: </strong><span style="color:blue">${{ (subTotal + subTotal * tax).toFixed(2) }}</span></div>
+    <br/>
+
+  </div>
+</ion-content>

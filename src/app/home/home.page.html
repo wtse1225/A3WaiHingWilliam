@@ -1,0 +1,70 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Create Your Reservation
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Blank</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div id="container">
+    <h1>William's Car Rental Form</h1>
+    <br />
+
+    <!--FormGroup is initialized in home.page.ts-->
+    <form [formGroup]="myForm" (ngSubmit)="buttonSubmit()">
+
+      <!-- Note: Since I'm using reactive form, I don't need to use template driven forms(ngModel) -->
+
+      <!--carType selection-->
+      <ion-label>What type of car?</ion-label>
+      <ion-select type="select" formControlName="carType" fill="outline" placeholder="Select a vehicle type">
+        <ion-select-option value="sedan">Sedan</ion-select-option>
+        <ion-select-option value="suv">SUV</ion-select-option>
+      </ion-select>
+      <ion-label *ngIf="submitAttempted && myForm.controls['carType'].invalid" color="danger">
+        You must select a car type
+      </ion-label>
+      <br/>
+      <br/>
+
+      <!--date selection-->
+      <ion-label>Enter the reservation date:</ion-label>
+      <ion-input type="date" formControlName="date" fill="outline"/>
+      <ion-label *ngIf="submitAttempted && myForm.controls['date'].invalid" color="danger">
+        Please must enter a valid date that is on or after today.
+      </ion-label>
+      <br/>
+      <br/>
+      
+      <!--hour selection-->
+      <ion-label>Enter the number of hours:</ion-label>
+      <ion-input type="number" formControlName="hour" fill="outline"/>
+      <ion-label *ngIf="submitAttempted && myForm.controls['hour'].invalid" color="danger">
+        Please must enter a value between 1 to 96.
+      </ion-label>
+      <br/>
+      <br/>
+
+      <!--checkbox-->
+      <ion-checkbox formControlName="childSeat" LabelPlacement="end">
+        Do you need a car seat?
+      </ion-checkbox>
+      <br/>
+      <br/>
+
+      <!--buttons-->
+      <ion-button type="submit" (click)="buttonSubmit()" color="tertiary">RESERVE</ion-button>
+      <ion-button type="button" (click)="buttonReset()" color="light">RESET</ion-button>
+      <br />
+
+    </form>
+  </div>
+</ion-content>
