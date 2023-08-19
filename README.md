@@ -10,7 +10,7 @@
 ![image](https://github.com/wtse1225/Car-Rental-Form-Android/assets/105259859/c8a8c64a-71a1-47f7-8e19-d5f2a43d45ea)
 
 #### Technologies Used:
-Ionic, Angular, HTML, CSS
+Ionic, Angular, TypeScript, HTML, CSS
 
 #### Objective:
 Developed a car rental application that allows users to reserve rental cars, calculate rental costs, and display reservation receipts. The application is designed with a focus on user-friendly navigation, input validation, and data processing.
